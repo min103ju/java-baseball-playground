@@ -13,29 +13,43 @@ public class BaseballTest {
     @Test
     void strike() {
         //given
-        char c = '1';
         int index = 0;
+        String input = "123";
         String number = "156";
+        Baseball baseball = new Baseball(input, number);
 
         //when
-        boolean actual = baseballGame.strike(number, c, index);
+        baseballGame.strike(baseball, baseball.getInput().charAt(index), index);
 
         //then
-        assertThat(actual).isTrue();
+        assertThat(baseball.getStrike()).isEqualTo(1);
     }
 
     @Test
     void ball() {
         //given
-        //failure case
-        char c = '1';
-        String number = "416";
+        int index = 0;
+        String input = "213";
+        String number = "426";
+        Baseball baseball = new Baseball(input, number);
 
         //when
-        boolean actual = baseballGame.ball(number, c);
+        baseballGame.ball(baseball, baseball.getInput().charAt(index), index);
 
         //then
-        assertThat(actual).isTrue();
+        assertThat(baseball.getBall()).isEqualTo(1);
+    }
+
+    @Test
+    void game() {
+        //given
+        //faliure case
+        String input = "123";
+        String number = "134";
+        Baseball baseball = new Baseball(input, number);
+
+        //when
+        baseballGame.game(baseball);
     }
 
     @Test
@@ -43,16 +57,15 @@ public class BaseballTest {
         //given
         Baseball baseball = new Baseball("123", "123");
 
-        //2 strike
         baseball.strike();
         baseball.strike();
         baseball.strike();
 
         //then
-        boolean actual = baseballGame.complete(baseball);
+        baseballGame.isComplete(baseball);
 
         //when
-        assertThat(actual).isTrue();
+//        assertThat(actual).isTrue();
 
     }
 }

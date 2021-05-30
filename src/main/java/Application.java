@@ -1,14 +1,21 @@
+import baseball.Baseball;
+import baseball.BaseballGame;
 import calculate.Calculate;
 
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        BaseballGame baseballGame = new BaseballGame();
+        Baseball baseball = new Baseball(baseballGame.generateNumber());
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNext()) {
-            String Input = scanner.nextLine();
+            String input = scanner.nextLine();
+            baseball.setInput(input);
 
+            baseballGame.game(baseball);
+            baseballGame.isComplete(baseball, scanner);
         }
     }
 

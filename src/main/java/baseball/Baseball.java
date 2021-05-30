@@ -8,6 +8,10 @@ public class Baseball {
     private int strike;
     private int ball;
 
+    public Baseball(String number) {
+        this.number = number;
+    }
+
     public Baseball(String input, String number) {
         this.input = input;
         this.number = number;
@@ -39,5 +43,14 @@ public class Baseball {
 
     public int getStrike() {
         return strike;
+    }
+
+    public int getBall() {
+        return ball;
+    }
+
+    public void clear() {
+        this.strike = 0;
+        this.ball = 0;
     }
 }
