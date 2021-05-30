@@ -9,4 +9,8 @@ public class Calculate {
         String inputValue = scanner.nextLine();
         return inputValue.toCharArray();
     }
+
+    public int addition(int a, int b) {
+        return a+b;
+    }
 }
