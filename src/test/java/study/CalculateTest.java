@@ -25,4 +25,11 @@ public class CalculateTest {
         int actual = calculate.addition(a, b);
         assertThat(actual).isEqualTo(addition);
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"3,2,1", "7,4,3"})
+    void subtraction(int a, int b, int subtraction) {
+        int actual = calculate.subtraction(a, b);
+        assertThat(actual).isEqualTo(subtraction);
+    }
 }
