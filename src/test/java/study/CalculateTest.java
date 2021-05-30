@@ -15,8 +15,8 @@ public class CalculateTest {
     @Test
     //무시하는 게 뭐였지
     void scanner() {
-        char[] charArray = calculate.scanner();
-        assertThat(charArray.length).isEqualTo(7);
+        String[] stringArray = calculate.scanner();
+        assertThat(stringArray.length).isEqualTo(7);
     }
 
     @ParameterizedTest
@@ -45,5 +45,12 @@ public class CalculateTest {
     void division(int a, int b, int division) {
         int actual = calculate.division(a, b);
         assertThat(actual).isEqualTo(division);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"+,1,2,3","-,3,2,1","*,2,3,6","/,6,3,2"})
+    void operation(String operation, int a, int b, int expected) {
+        int actual = calculate.operation(operation, a, b);
+        assertThat(actual).isEqualTo(expected);
     }
 }
