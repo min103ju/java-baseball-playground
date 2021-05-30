@@ -39,4 +39,11 @@ public class CalculateTest {
         int actual = calculate.multiplication(a, b);
         assertThat(actual).isEqualTo(multiplication);
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"6,3,2", "8,2,4"})
+    void division(int a, int b, int division) {
+        int actual = calculate.division(a, b);
+        assertThat(actual).isEqualTo(division);
+    }
 }
