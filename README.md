@@ -24,3 +24,13 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+---
+
+## 기능 정의
+1. 목표 수 자동 생성 기능
+2. Strike 판별 기능
+3. Ball 판별 기능
+4. 3 Strike 판별 기능
+5. 게임 재시작 기능
+6. 게임 종료 기능

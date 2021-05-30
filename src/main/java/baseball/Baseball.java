@@ -37,4 +37,7 @@ public class Baseball {
         this.ball++;
     }
 
+    public int getStrike() {
+        return strike;
+    }
 }

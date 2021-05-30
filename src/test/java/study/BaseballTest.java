@@ -18,10 +18,10 @@ public class BaseballTest {
         String number = "156";
 
         //when
-        boolean strike = baseballGame.strike(number, c, index);
+        boolean actual = baseballGame.strike(number, c, index);
 
         //then
-        assertThat(strike).isTrue();
+        assertThat(actual).isTrue();
     }
 
     @Test
@@ -32,9 +32,27 @@ public class BaseballTest {
         String number = "416";
 
         //when
-        boolean ball = baseballGame.ball(number, c);
+        boolean actual = baseballGame.ball(number, c);
 
         //then
-        assertThat(ball).isTrue();
+        assertThat(actual).isTrue();
+    }
+
+    @Test
+    void complete() {
+        //given
+        Baseball baseball = new Baseball("123", "123");
+
+        //2 strike
+        baseball.strike();
+        baseball.strike();
+        baseball.strike();
+
+        //then
+        boolean actual = baseballGame.complete(baseball);
+
+        //when
+        assertThat(actual).isTrue();
+
     }
 }
