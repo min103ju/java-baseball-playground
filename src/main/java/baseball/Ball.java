@@ -1,5 +1,7 @@
 package baseball;
 
+import java.util.Objects;
+
 public class Ball {
 
     private int index;
@@ -11,7 +13,10 @@ public class Ball {
     }
 
     public BallStatus play(Ball userBall) {
-        if(userBall.isBall(this)) {
+        if (userBall.equals(this)) {
+            return BallStatus.STRIKE;
+        }
+        if (userBall.isBall(this)) {
             return BallStatus.BALL;
         }
         return BallStatus.NOTHING;
@@ -21,4 +26,12 @@ public class Ball {
         return this.number==ball.number && this.index != ball.index;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return index == ball.index &&
+                number == ball.number;
+    }
 }
