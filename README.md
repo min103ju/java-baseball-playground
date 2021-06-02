@@ -24,3 +24,20 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+---
+## 기능 정의
+1. 1~9까지 난수 생성 기능
+   1. 1~9까지의 자연수인지 검사
+   2. 3가지 수가 서로 다른 수인지 검사
+2. Strike 검사 기능
+3. Ball 검사 기능
+4. Nothing 검사 기능
+5. 게임 종료 기능
+
+---
+## 추가 미션
+1. Angular JS Commit Message Convention을 지킬 것.
+2. 1개의 Test 완료 후 Commit
+3. Google Java Style Guide를 따를 것.
+4. Instance의 멤버 변수에 접근할 경우 messege를 던지는 method를 만들 것.
