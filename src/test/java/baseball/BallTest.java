@@ -15,6 +15,12 @@ public class BallTest {
     }
 
     @Test
+    void ball() {
+        assertThat(computerBall.play(new Ball(2, 2)))
+                .isEqualTo(BallStatus.BALL);
+    }
+
+    @Test
     void nothing() {
         assertThat(computerBall.play(new Ball(2,3)))
                 .isEqualTo(BallStatus.NOTHING);
