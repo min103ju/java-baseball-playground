@@ -62,7 +62,7 @@ public class BaseballTest {
         baseball.strike();
 
         //then
-        baseballGame.isComplete(baseball);
+//        baseballGame.isComplete(baseball);
 
         //when
 //        assertThat(actual).isTrue();
