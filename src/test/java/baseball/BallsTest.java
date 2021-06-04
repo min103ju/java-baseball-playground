@@ -23,6 +23,19 @@ public class BallsTest {
     }
 
     @Test
+    void ball() {
+        // given
+        Ball ball = new Ball(1, 2);
+
+        // when
+        BallStatus status = balls.play(ball);
+
+        // then
+        assertThat(status).isEqualTo(BallStatus.BALL);
+
+    }
+
+    @Test
     void nothing() {
         // given
         Ball ball = new Ball(1, 6);
