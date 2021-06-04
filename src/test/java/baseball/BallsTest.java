@@ -6,15 +6,16 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 /* Balls & Ball의 비교 */
 public class BallsTest {
 
-    Balls balls;
+    Balls computerBalls;
 
     @BeforeEach
     void setUp() {
-        balls = new Balls(
+        computerBalls = new Balls(
                 Arrays.asList(
                         new Ball(1,1),
                         new Ball(2,2),
@@ -23,15 +24,32 @@ public class BallsTest {
     }
 
     @Test
+    void ballsPlay() {
+        // given
+        Balls userBalls = new Balls(
+                Arrays.asList(
+                        new Ball(1, 1),
+                        new Ball(2, 2),
+                        new Ball(3, 5))
+        );
+
+        computerBalls.plays(userBalls);
+
+        assertThat(userBalls.getBall()).isEqualTo(0);
+        assertThat(userBalls.getStrike()).isEqualTo(2);
+
+    }
+
+    @Test
     void strikeOne() {
         // given
         Ball ball = new Ball(1, 1);
 
         // when
-        BallStatus status = balls.play(ball);
+        computerBalls.play(ball);
 
         // then
-        assertThat(status).isEqualTo(BallStatus.STRIKE);
+        assertThat(computerBalls.getStrike()).isEqualTo(1);
 
     }
 
@@ -41,10 +59,10 @@ public class BallsTest {
         Ball ball = new Ball(1, 2);
 
         // when
-        BallStatus status = balls.play(ball);
+        computerBalls.play(ball);
 
         // then
-        assertThat(status).isEqualTo(BallStatus.BALL);
+        assertThat(computerBalls.getBall()).isEqualTo(1);
 
     }
 
@@ -54,10 +72,11 @@ public class BallsTest {
         Ball ball = new Ball(1, 6);
 
         // when
-        BallStatus status = balls.play(ball);
+        computerBalls.play(ball);
 
         // then
-        assertThat(status).isEqualTo(BallStatus.NOTHING);
+        assertThat(computerBalls.getBall()).isEqualTo(0);
+        assertThat(computerBalls.getStrike()).isEqualTo(0);
 
     }
 }

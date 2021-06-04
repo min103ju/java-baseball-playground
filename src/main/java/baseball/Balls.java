@@ -1,7 +1,6 @@
 package baseball;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Balls {
     private List<Ball> ballList;
@@ -14,22 +13,34 @@ public class Balls {
         this.strike = 0;
     }
 
-    public BallStatus play(Ball ball) {
+    public void play(Ball ball) {
 
         if (ballList.stream()
                 .filter(x -> ball.play(x) == BallStatus.STRIKE)
                 .findAny()
                 .isPresent()) {
-            return BallStatus.STRIKE;
+            this.strike++;
         }
 
         if (ballList.stream()
                 .filter(x -> ball.play(x) == BallStatus.BALL)
                 .findAny()
                 .isPresent()) {
-            return BallStatus.BALL;
+            this.ball++;
         }
+    }
 
-        return BallStatus.NOTHING;
+    public int getBall() {
+        return ball;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
+
+    public void plays(Balls userBalls) {
+        this.ballList.forEach(
+                com -> userBalls.play(com)
+        );
     }
 }
