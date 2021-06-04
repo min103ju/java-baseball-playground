@@ -24,6 +24,24 @@ public class BallsTest {
     }
 
     @Test
+    void isComplete() {
+        // given
+        Balls userBalls = new Balls(
+                Arrays.asList(
+                        new Ball(1, 1),
+                        new Ball(2, 2),
+                        new Ball(3, 3))
+        );
+
+        // when
+        computerBalls.plays(userBalls);
+        boolean isComplete = userBalls.isComplete();
+
+        // then
+        assertThat(isComplete).isTrue();
+    }
+
+    @Test
     void ballsPlay() {
         // given
         Balls userBalls = new Balls(

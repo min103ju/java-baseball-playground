@@ -43,4 +43,8 @@ public class Balls {
                 com -> userBalls.play(com)
         );
     }
+
+    public boolean isComplete() {
+        return this.strike == 3;
+    }
 }
