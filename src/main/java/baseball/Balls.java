@@ -15,11 +15,20 @@ public class Balls {
     }
 
     public BallStatus play(Ball ball) {
+
+        if (ballList.stream()
+                .filter(x -> ball.play(x) == BallStatus.STRIKE)
+                .findAny()
+                .isPresent()) {
+            return BallStatus.STRIKE;
+        }
+
         if (ballList.stream()
                 .filter(x -> ball.play(x) == BallStatus.BALL)
                 .findAny()
-                .isPresent())
+                .isPresent()) {
             return BallStatus.BALL;
+        }
 
         return BallStatus.NOTHING;
     }

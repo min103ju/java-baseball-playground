@@ -23,7 +23,20 @@ public class BallsTest {
     }
 
     @Test
-    void ball() {
+    void strikeOne() {
+        // given
+        Ball ball = new Ball(1, 1);
+
+        // when
+        BallStatus status = balls.play(ball);
+
+        // then
+        assertThat(status).isEqualTo(BallStatus.STRIKE);
+
+    }
+
+    @Test
+    void ballOne() {
         // given
         Ball ball = new Ball(1, 2);
 
@@ -36,7 +49,7 @@ public class BallsTest {
     }
 
     @Test
-    void nothing() {
+    void nothingOne() {
         // given
         Ball ball = new Ball(1, 6);
 
